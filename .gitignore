@@ -16,6 +16,8 @@
 /build
 #data
 /data
+#images
+/public/images
 
 # misc
 .DS_Store
