@@ -8,8 +8,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div >
-        <p>You are in 'pages' directory        </p>
-        
+        <p>You are in 'pages' home directory</p>        
       </div>
     </main>
   )

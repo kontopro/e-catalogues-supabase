@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient"
-import styles from '@/styles/Category.module.css' 
+import styles from '@/styles/Kyrio.module.css' 
 
 export default function Kyrio( { category, kyrio, ecats } ) {
     

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient"
-import styles from '@/styles/Category.module.css' 
+import styles from '@/styles/Catalogue.module.css' 
 
 export default function Catalogue( { category, kyrio, catalogue, main_assemblies } ) {
     
