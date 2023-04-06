@@ -18,7 +18,7 @@ export async function getStaticPaths(){
 
     // inner join ώστε να κουμπώσει κάθε κύριο με την κατηγορία του και τους καταλόγους του
     const {data: catalogues, error} = await supabase.from('catalogue').select('slug,kyrio:kyrio_id (slug,category:category_id (slug) )')    
-
+    
     // Δημιουργία παραμέτρων
     const paths = catalogues.map((x) => ({
         params: {catalogue: x.slug, kyrio: x.kyrio?x.kyrio.slug:'', category: x.kyrio?x.kyrio.category?x.kyrio.category.slug:'':''}
@@ -41,7 +41,7 @@ export async function getStaticProps( { params } ){
     // Τσίμπα όλο τον Κατάλογο από το slug (χρειάζομαι id για ανεύρεση κύριων συγκροτημάτων, όνομα για εμφάνιση και slug για το link)
     const {data: catalogues, error: err1} = await supabase.from('catalogue').select().eq('slug',params.catalogue)
     const catalogue = catalogues[0]
-    console.log(catalogue)
+    
     
     // Έλεγχος για κύρια συγκροτήματα του Καταλόγου
     const {data: main_assemblies, error: err2} = await supabase.from('assembly').select().eq('catalogue_id',catalogue.id).is('parent_id', null)    
