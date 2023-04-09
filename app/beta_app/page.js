@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div >
-        <p>You are in 'app' directory        </p>
+        <p>You are in app directory        </p>
         
       </div>
     </main>

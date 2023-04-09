@@ -10,10 +10,10 @@ export default function Subassembly( { /* category, kyrio,  sub_assemblies, cata
                 <div>You are in assembly <b>{assembly.assid}!</b></div>
                 <div>It is {no_parent_assembly?<b>NOT A</b>:<b>A</b>} <b>parent</b> assembly</div>
                 {/* Αν είχα δενδρική, τότε θέλω: category, kyrio,  sub_assemblies, catalogue  */}
-                {no_parent_assembly?parts.map(x => <div key={x.id}>{`${x.ref_no}: ${x.nsn}`}</div>):
+                {no_parent_assembly?parts.map(x => <div key={x.id}>{`${x.ref_no}: ${x.nsn}`}</div>):''}
                 {/* Σε περίπτωση δενδρικής συγκροτημάτων: Λίστα με υπο συγκροτήματα και σύνδεσμοι προς αυτά */
                 /* <div>{sub_assemblies.map(x => <div key={x.id}><Link href={`/${category}/${kyrio}/${catalogue}/${assembly.assid}/${x.assid}`}>{x.name}</Link></div>)}</div> */ }
-                }
+                
             </main>
 } 
 

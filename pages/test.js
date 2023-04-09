@@ -10,7 +10,7 @@ export default function Test( { menus } ) {
   return (
     <main className={styles.main}>
       <div>
-        <p>You are in `pages` directory</p>
+        <p>You are in pages directory</p>
         {/* <p>{menu.map(x => <div key={x.id}>{x.id}</div>)}</p> */}
         <p>hello </p>
          {/* <pre>{JSON.stringify(menus, null, 2)}</pre> */}
