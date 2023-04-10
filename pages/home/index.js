@@ -10,16 +10,23 @@ export default function Test( { menus } ) {
   return (
     <main className={styles.main}>
       <div>
-        <p>You are in `pages` directory</p>
-        {/* <p>{menu.map(x => <div key={x.id}>{x.id}</div>)}</p> */}
+        <p>You are in home directory</p>
         <p>hello </p>
-         {/* <pre>{JSON.stringify(menus, null, 2)}</pre> */}
-         {menus.map(menu => <div key={menu.id} className={styles.card}>
-                                <Image src={`/images/category/${menu.slug}.jpg`} width='400' height='200'/>                               
-                                <p><Link href={`/${menu.slug}`}>{menu.name}</Link></p>
+         <div className='cards-wrapper'>
+         {menus.map(menu => <div key={menu.id} className="card">
+                                <div className='card-image'>
+                                  <p><Image src={`/images/category/${menu.slug}.jpg`} width='400' height='200'/></p>
+                                </div>
+                                <div className='card-title'>                             
+                                  <p><Link href={`/${menu.slug}`}>Τίτλος: {menu.name}</Link></p>
+                                </div>
+                                <div className='card-desc'>
+                                  <p>description</p>
+                                </div>
                             </div>
           )
           }
+          </div>
       </div>
     </main>
   )
@@ -29,8 +36,6 @@ export async function getStaticProps()  {
   
   const { data: menu, error } = await supabase.from('category').select().is('parent_id',null);
   
-  // console.log(menu)
-  // console.log(error)
   if (!menu) {
     return {props: {menus:'not categories'}}
   }

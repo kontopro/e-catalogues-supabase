@@ -1,0 +1,46 @@
+/* reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  p, h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+
+  #root, #__next {
+    isolation: isolate;
+  }
+/* main structure */
+  .site-app {display: flex; flex-direction:column; min-height: 100vh; justify-content: space-between; }
+  .container {border: 1px solid blue;}
+  footer{margin-top:auto;height: 70px;}
+  header{height: 70px;}
+
+/* cards */
+.cards-wrapper {margin-top:20px;display: flex; flex-flow: row wrap; gap:20px;}
+.card {display: flex;flex-direction: column; flex: 0 1 30%; box-shadow: 0px 14px 28px rgba(0, 0, 0, .3); border-radius: 4%;}
+.card-image{ background-position: center center;background-size: cover;}
