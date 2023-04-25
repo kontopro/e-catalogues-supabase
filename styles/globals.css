@@ -58,3 +58,11 @@ footer{height:150px;background-color:  #171321;}
 .card-image {width:100%;flex:0 1 auto; }
 .card-image img{border-top-right-radius: 4%; border-top-left-radius: 4%;}
 
+/* tree */
+.tree-container {width:100%; margin: 0 auto;display: flex;}
+.tree-container>.tree {flex-basis: 500px;border: 1px solid black;}
+.tree-container>.imgnsn {flex-basis: 800px;border: 1px solid black;}
+.tree>.parent-container{width: 100%;}
+.tree>.parent-container>h4{cursor:pointer;color:grey}
+.tree>.parent-container>.sub-container{display: none;}
+
