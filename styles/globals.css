@@ -64,5 +64,5 @@ footer{height:150px;background-color:  #171321;}
 .tree-container>.imgnsn {flex-basis: 800px;border: 1px solid black;}
 .tree>.parent-container{width: 100%;}
 .tree>.parent-container>h4{cursor:pointer;color:grey}
-.tree>.parent-container>.sub-container{display: none;}
+.tree>.parent-container>.sub-container{}
 
