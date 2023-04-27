@@ -1,8 +1,19 @@
 import { supabase } from "@/lib/supabaseClient"
 import styles from '@/styles/Tree.module.css' 
+import { useState } from 'react';
 
 
 export default function Tree( { parent_assemblies } ) {
+
+    const [subassembly, setSubassembly] = useState('null');
+
+    function handleClick(e) {
+              e.preventDefault();
+              const curr = e.target.getAttribute('assid');
+              setSubassembly(curr)
+              return curr
+            }
+
     return (
       <main className={styles.main}>
         <div>
@@ -16,12 +27,12 @@ export default function Tree( { parent_assemblies } ) {
            {parent_assemblies.map(parent => <div key={parent.id} className='parent-container'>
                                                                  
                                   <h4>{parent.name}</h4>
-                                  <div className='sub-container'>{parent.assembly.map(child_assembly => <div key={child_assembly.id} className='subassembly'>{child_assembly.name}</div>)}</div>
+                                  <ul className='sub-container'>{parent.assembly.map(child_assembly => <li key={child_assembly.id} assid = {child_assembly.assid} onClick={handleClick} className='subassembly'>{child_assembly.name}</li>)}</ul>
                               </div>
             )
             }
             </div>
-            <div className='imgnsn'>listnsn</div>
+            <div className='imgnsn'>listnsn show subassembly: {subassembly}</div>
             </div>
         </div>
       </main>
@@ -39,10 +50,15 @@ export async function getStaticPaths(){
 
 export async function getStaticProps( { params } )  {
   
-  
+    // Θέλω τον κατάλογο για να βρω συγκροτήματα, υπο-συγκροτήματα και ΑΟ
     const {data: catalogue, error1} = await supabase.from('catalogue').select('id,name,slug').eq('slug',params.catalogue)  
-    const {data: parent_assemblies, error2} = await supabase.from('assembly').select('id,name,caption,assembly (id,name,caption)').eq('catalogue_id',catalogue[0].id).is('parent_id',null)
-        
+    // Από τον κατάλογο, βρες τα συγκροτήματα με εμφωλευμένα τα υπο-συγκροτήματα, ώστε να έχουν δενδρική μορφή
+    const {data: parent_assemblies, error2} = await supabase.from('assembly').select('id,name,caption,assembly (id,assid,name,caption)').eq('catalogue_id',catalogue[0].id).is('parent_id',null)
+    // Από τον κατάλογο, βρες μόνο τα υπο-συγκροτήματα για βρούμε τους ΑΟ
+    const {data: sub_assemblies, error3} = await supabase.from('assembly').select('id').eq('catalogue_id',catalogue[0].id).gt('parent_id',0)
+    // Από τα υπο-συγκροτήματα βρες τους ΑΟ
+    const {data: test, error4} = await supabase.from('part').select('id').in('assembly_id',sub_assemblies.map(x => x.id))
+    console.log(test)
     return {
       props: {
         parent_assemblies,
