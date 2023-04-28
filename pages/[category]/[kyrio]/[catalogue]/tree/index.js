@@ -1,39 +1,46 @@
+import { Listnsn } from "@/components/Listnsn";
 import { supabase } from "@/lib/supabaseClient"
 import styles from '@/styles/Tree.module.css' 
 import { useState } from 'react';
 
 
-export default function Tree( { parent_assemblies } ) {
+export default function Tree( { parent_assemblies, catalogue, parts } ) {
 
     const [subassembly, setSubassembly] = useState('null');
 
     function handleClick(e) {
               e.preventDefault();
               const curr = e.target.getAttribute('assid');
-              setSubassembly(curr)
+              setSubassembly(curr);
               return curr
             }
+    const myparts = parts.filter(x => x.assembly.assid == subassembly)
 
     return (
       <main className={styles.main}>
         <div>
-          <p>You are in test directory</p>
-          {/* <p>{menu.map(x => <div key={x.id}>{x.id}</div>)}</p> */}
-          <p>hello </p>
-          <p>I now test the tree module </p>
+          <p>You are in Tree directory</p>
+          <p>hello</p>
+          <p>I now test the tree module</p>
           <div className='tree-container'>
-          <div className="tree">
-           {/* <pre>{JSON.stringify(menus, null, 2)}</pre> */}
-           {parent_assemblies.map(parent => <div key={parent.id} className='parent-container'>
-                                                                 
-                                  <h4>{parent.name}</h4>
-                                  <ul className='sub-container'>{parent.assembly.map(child_assembly => <li key={child_assembly.id} assid = {child_assembly.assid} onClick={handleClick} className='subassembly'>{child_assembly.name}</li>)}</ul>
-                              </div>
-            )
-            }
+            <div className="tree">
+              {parent_assemblies.map(parent => 
+                <div key={parent.id} className='parent-container'>
+                    <h4>{parent.name}</h4>
+                      <ul className='sub-container'>
+                        {parent.assembly.map(child_assembly => 
+                          <li key={child_assembly.id} assid = {child_assembly.assid} onClick={handleClick} className='subassembly'>{child_assembly.name}</li>
+                        )}
+                      </ul>
+                </div>
+              )}
             </div>
-            <div className='imgnsn'>listnsn show subassembly: {subassembly}</div>
+            <div className='imgnsn'>
+              <div className="title"><h3>Εδώ βλέπουμε στοιχεία (εικόνα και ανταλλακτικά) <br/> του Υποσυγκροτήματος: {subassembly}</h3></div>
+              <div className="pic"><p> τράβα την εικόνα '{`/data/images/${catalogue[0].slug}/${subassembly}.jpg`}'</p></div>
+              <Listnsn antka = {myparts} />
             </div>
+        </div>
         </div>
       </main>
     )
@@ -41,7 +48,7 @@ export default function Tree( { parent_assemblies } ) {
 
 export async function getStaticPaths(){
     
-    // inner join ώστε να κουμπώσει κάθε κύριο με την κατηγορία του και τους καταλόγους του
+    // inner join ώστε να κουμπώσει κάθε κύριο με την κατηγορία του και τους καταλόγους του για το paths
     const {data: catalogues, error} = await supabase.from('catalogue').select('slug,kyrio:kyrio_id (slug,category:category_id (slug) )')
     
     const paths = catalogues.map(x => ({params: {category: x.kyrio.category.slug, kyrio: x.kyrio.slug, catalogue: x.slug}}))
@@ -51,17 +58,23 @@ export async function getStaticPaths(){
 export async function getStaticProps( { params } )  {
   
     // Θέλω τον κατάλογο για να βρω συγκροτήματα, υπο-συγκροτήματα και ΑΟ
-    const {data: catalogue, error1} = await supabase.from('catalogue').select('id,name,slug').eq('slug',params.catalogue)  
+    const {data: catalogue, error1} = await supabase.from('catalogue').select('id,name,slug').eq('slug',params.catalogue)
+  
     // Από τον κατάλογο, βρες τα συγκροτήματα με εμφωλευμένα τα υπο-συγκροτήματα, ώστε να έχουν δενδρική μορφή
     const {data: parent_assemblies, error2} = await supabase.from('assembly').select('id,name,caption,assembly (id,assid,name,caption)').eq('catalogue_id',catalogue[0].id).is('parent_id',null)
+    
     // Από τον κατάλογο, βρες μόνο τα υπο-συγκροτήματα για βρούμε τους ΑΟ
     const {data: sub_assemblies, error3} = await supabase.from('assembly').select('id').eq('catalogue_id',catalogue[0].id).gt('parent_id',0)
+    
     // Από τα υπο-συγκροτήματα βρες τους ΑΟ
-    const {data: test, error4} = await supabase.from('part').select('id').in('assembly_id',sub_assemblies.map(x => x.id))
-    console.log(test)
+    const {data: parts, error4} = await supabase.from('part').select('id,name,nsn,pn,quantity,aid,ref_no,picture_no,assembly (id,assid)').in('assembly_id',sub_assemblies.map(x => x.id)).order('aid')
+    
     return {
       props: {
         parent_assemblies,
+        catalogue,
+        parts
+
       }
     }    
   } 

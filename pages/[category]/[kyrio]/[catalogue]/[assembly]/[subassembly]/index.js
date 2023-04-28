@@ -1,19 +1,15 @@
-import Link from "next/link";
-import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient"
-import styles from '@/styles/Catalogue.module.css' 
+import styles from '@/styles/Catalogue.module.css'
+import { Listnsn } from "@/components/Listnsn"
 
 export default function Subassembly( { /* category, kyrio,  sub_assemblies, catalogue */  assembly, parts } ) {
     
     const no_parent_assembly = parts.length?1:0
     return  <main className={styles.main}>
                 <div>You are in assembly <b>{assembly.assid}!</b></div>
-                <div>It is {no_parent_assembly?<b>NOT A</b>:<b>A</b>} <b>parent</b> assembly</div>
-                {/* Αν είχα δενδρική, τότε θέλω: category, kyrio,  sub_assemblies, catalogue  */}
-                {no_parent_assembly?parts.map(x => <div key={x.id}>{`${x.ref_no}: ${x.nsn}`}</div>):''}
-                {/* Σε περίπτωση δενδρικής συγκροτημάτων: Λίστα με υπο συγκροτήματα και σύνδεσμοι προς αυτά */
-                /* <div>{sub_assemblies.map(x => <div key={x.id}><Link href={`/${category}/${kyrio}/${catalogue}/${assembly.assid}/${x.assid}`}>{x.name}</Link></div>)}</div> */ }
-                
+                <div>It is {no_parent_assembly?<b>NOT A</b>:<b>A</b>} <b>parent</b> assembly</div>                
+                {no_parent_assembly?<Listnsn antka={parts} />:''}
+               
             </main>
 } 
 
@@ -57,7 +53,7 @@ export async function getStaticProps( { params } ){
     // const {data: sub_assemblies, error: err2} = await supabase.from('assembly').select().eq('parent_id',assembly.id)  
     
     // Τσίμπα τα ανταλλακτικά
-    const {data: parts, error: err3} = await supabase.from('part').select().eq('assembly_id',assembly.id)  
+    const {data: parts, error: err3} = await supabase.from('part').select('id,aid,ref_no,picture_no,name,nsn,pn,assembly (id,assid)').eq('assembly_id',assembly.id)  
     
     return {
         props: {/* category, kyrio, sub_assemblies, catalogue */ assembly, parts}
