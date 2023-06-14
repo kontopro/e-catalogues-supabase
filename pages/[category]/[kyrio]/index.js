@@ -4,9 +4,13 @@ import { supabase } from "@/lib/supabaseClient"
 import styles from '@/styles/Kyrio.module.css' 
 
 export default function Kyrio( { category, kyrio, ecats } ) {
+
+    
     
     return  <main className={styles.main}>
                 <div>You are in kyrio <b>{kyrio.name}!</b></div>
+                
+                {/* <Link href={`/${category}/${kyrio.slug}/aithsh`}>Προβολή Αίτησης</Link> */}
                 <div>{ecats.map(x => <div key={x.id}><Link href={`/${category}/${kyrio.slug}/${x.slug}`}>{x.name}</Link></div>)}</div>
             </main>
 } 

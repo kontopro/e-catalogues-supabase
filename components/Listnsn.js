@@ -1,3 +1,5 @@
+import Link from "next/link"
+import { usePathname, useSearchParams }  from "next/navigation"
 import { userAgent } from "next/server"
 import { useState } from "react"
 
@@ -6,7 +8,11 @@ export function Listnsn({antka}){
 
     const [aithsh,setAithsh]=useState([])
     console.log(aithsh)
-
+// Θα φαίνεται η αίτηση στο μενού κύριο, οπότε τραβάω το path μεχρι το κύριο!
+    const pathName = usePathname();
+    const regKyrio=/^\/(\w|-)+\/(\w|-)+\//;
+    const kyrioUrl = regKyrio.exec(pathName)[0];
+    
     function handleChange(e){
         e.preventDefault()
         const currpart = {id:e.target.getAttribute('id'),pos: e.target.value, ao:e.target.getAttribute('partao'), pn:e.target.getAttribute('partpn'),per:e.target.getAttribute('partname')}
@@ -18,6 +24,9 @@ export function Listnsn({antka}){
 
     return (
     <div className="nsn">
+        <p>the path is {pathName}</p>
+        <p>the path of aithsh is {kyrioUrl}aithsh</p>
+        <Link href={`${kyrioUrl}aithsh`}>AITHSH</Link>
         <p>τραβα τα ανταλλακτικά:</p>
         <form className="form-listnsn">
             <table>
