@@ -1,12 +1,12 @@
 import Link from "next/link"
 import { usePathname, useSearchParams }  from "next/navigation"
-import { userAgent } from "next/server"
 import { useState } from "react"
+import { useAithsh } from "./AithshState"
 
 
 export function Listnsn({antka}){
 
-    const [aithsh,setAithsh]=useState([])
+    const {aithsh,handleAithsh}=useAithsh();
     console.log(aithsh)
 // Θα φαίνεται η αίτηση στο μενού κύριο, οπότε τραβάω το path μεχρι το κύριο!
     const pathName = usePathname();
@@ -16,9 +16,9 @@ export function Listnsn({antka}){
     function handleChange(e){
         e.preventDefault()
         const currpart = {id:e.target.getAttribute('id'),pos: e.target.value, ao:e.target.getAttribute('partao'), pn:e.target.getAttribute('partpn'),per:e.target.getAttribute('partname')}
-        const oldait=aithsh.filter(x=>x.id !== currpart.id)        
-        const newait = [...oldait,currpart]
-        setAithsh(newait)
+        // const oldait=aithsh.filter(x=>x.id !== currpart.id)        
+        // const newait = [...oldait,currpart]
+        handleAithsh(currpart.ao,currpart.pos,currpart.per)
     }
 
 
@@ -44,7 +44,7 @@ export function Listnsn({antka}){
                     {antka.map( part => 
                     <tr key={part.id}>
                         <td>{part.ref_no}</td>
-                        <td>{part.nsn?part.nsn:'Άνευ ΑΟ'}</td>
+                        <td>{part.nsn?part.nsn:'Άνευ Α/Ο'}</td>
                         <td>{part.pn?part.pn:'-'}</td>
                         <td>{part.name}</td><td>{part.quantity}</td>
                         <td><input id={part.id} onChange={handleChange} partname={part.name} partpn={part.pn} partao={part.nsn} type='number' defaultValue={`${aithsh.some(x=>x.id==part.id)?aithsh.find(x=>x.id==part.id).pos:0}`} min={0} max={part.quantity}/></td>

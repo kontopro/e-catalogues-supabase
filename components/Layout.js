@@ -1,7 +1,7 @@
 import React from "react"
 
 
-function Mayout( {children} ){
+function Layout( {children} ){
 
     return (<div className="site-app">
                 <header className="header">
@@ -17,4 +17,4 @@ function Mayout( {children} ){
             </div>)
 }
 
-export default Mayout
+export default Layout
