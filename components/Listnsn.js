@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { usePathname, useSearchParams }  from "next/navigation"
-import { useState } from "react"
 import { useAithsh } from "./AithshState"
 
 
@@ -15,10 +14,10 @@ export function Listnsn({antka}){
     
     function handleChange(e){
         e.preventDefault()
-        const currpart = {id:e.target.getAttribute('id'),pos: e.target.value, ao:e.target.getAttribute('partao'), pn:e.target.getAttribute('partpn'),per:e.target.getAttribute('partname')}
+        const currpart = {id:Number(e.target.getAttribute('id')),pos: Number(e.target.value), ao:e.target.getAttribute('partao'), pn:e.target.getAttribute('partpn'),per:e.target.getAttribute('partname')}
         // const oldait=aithsh.filter(x=>x.id !== currpart.id)        
         // const newait = [...oldait,currpart]
-        handleAithsh(currpart.ao,currpart.pos,currpart.per)
+        handleAithsh(currpart.id,currpart.ao,currpart.pn,currpart.pos,currpart.per)
     }
 
 
@@ -47,7 +46,7 @@ export function Listnsn({antka}){
                         <td>{part.nsn?part.nsn:'Άνευ Α/Ο'}</td>
                         <td>{part.pn?part.pn:'-'}</td>
                         <td>{part.name}</td><td>{part.quantity}</td>
-                        <td><input id={part.id} onChange={handleChange} partname={part.name} partpn={part.pn} partao={part.nsn} type='number' defaultValue={`${aithsh.some(x=>x.id==part.id)?aithsh.find(x=>x.id==part.id).pos:0}`} min={0} max={part.quantity}/></td>
+                        <td><input id={part.id} onChange={handleChange} partname={part.name} partpn={part.pn} partao={part.nsn} type='number' value={`${aithsh.some(x=>x.id==part.id)?aithsh.find(x=>x.id==part.id).pos:0}`} min={0} max={part.quantity}/></td>
                     </tr>)}
                 </tbody>
             </table>
