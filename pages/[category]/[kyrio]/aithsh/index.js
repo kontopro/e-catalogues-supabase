@@ -1,8 +1,10 @@
 import { useAithsh } from "@/components/AithshState";
+import Barcode from "react-barcode";
 
 export default function Aithsh(){
 
     const {aithsh, handleAithsh} = useAithsh();
+    const check = <>&#x2713;</>
 
     return (
         <>
@@ -23,16 +25,16 @@ export default function Aithsh(){
           <table className='t2'>
           <thead>
             <tr>
-              <th>ΚΩΔΙΚΑΣ ΕΝΤΥΠ.</th>
+              <th>ΚΩΔ ΕΝΤ</th>
               <th>ΑΡΙΘΜΟΣ ΟΝΟΜΑΣΤΙΚΟΥ</th>
-              <th>PART NUMBER</th>
+              <th>P/N</th>
               <th>ΟΝΟΜΑΣΙΑ</th>
               <th>ΚΥΡΙΟ ΥΛΙΚΟ</th>
-              <th>ΑΙΤΟΥΜΕΝΗ ΠΟΣΟΤΗΤΑ</th>
-              <th>ΤΑΥΤΟΤΗΤΑ ΕΝΤΥΠΟΥ</th>
+              <th>ΑΙΤ. ΠΟΣΟΤΗΤΑ</th>
+              <th>ΤΑΥΤ ΕΝΤ</th>
               <th>ΜΜ</th>
               <th>ΑΙΤΙΟΛΟΓΙΑ</th>
-              <th>ΠΡΟΤΕΡΑΙΟΤΗΤΑ</th>
+              <th>ΠΡΟΤΕΡ.</th>
               <th>ΔΕΛΤΙΟ</th>
               <th>ΠΑΡΑΤΗΡΗΣΕΙΣ</th>
             </tr>
@@ -45,8 +47,8 @@ export default function Aithsh(){
           {aithsh.map(x=>
             <tr key={x.ao}>
               <td> </td>
-              <td>{x.ao}</td>
-              <td> </td>
+              <td>{x.ao?x.ao:x.pn}</td>
+              <td>{x.ao?'':check} </td>
               <td>{x.per}</td>
               <td> </td>
               <td>{x.pos}</td>
@@ -55,8 +57,8 @@ export default function Aithsh(){
               <td> </td>
               <td> </td>
               <td> </td>
-              <td> </td>
-              {/* <td><Barcode width={1} height={30} displayValue={false} value={`${x.ao} ${x.pos}`} /> </td> */}
+              {/* <td> </td> */}
+              <td><Barcode width={1} height={30} displayValue={false} value={`${x.ao} ${x.pos}`} /> </td>
             </tr>
           )}
           </tbody>} 

@@ -72,3 +72,64 @@ footer{height:150px;background-color:  #171321;}
   background-color: #eee;
 }
 
+/* Aithsh */
+
+main.aithsh>.print{
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+main.aithsh>.print>.print-title{
+    text-align: center;
+}
+
+main.aithsh table>tfoot>tr>td{
+  padding-top:15px;
+  text-align: center;
+  vertical-align: text-top;
+}
+main.aithsh table>tfoot>tr{
+  height: 100px;
+}
+main.aithsh table {
+  font-weight: 300;
+  width: 100%;
+  max-width: 1100px;
+}
+main.aithsh table.t1 tr>td {
+  border:none;
+  height: 20px;
+}
+main.aithsh table.t1 {
+  border: 1px solid lightgray;
+  border-bottom: none;
+  margin-bottom:-10px;
+}
+main.aithsh table.t2 {
+  border: 1px solid lightgray;
+}
+
+main.aithsh table tr>td,
+main.aithsh table tr>th{
+  background-color: #fff;
+  color: #000;
+  font-size: small;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-left: none;
+  border-top: none;
+}
+
+@media print  {
+  .no-print, header, .sub-menu, footer  {
+    display:none !important;  }
+  @page {
+    size: A4 landscape;
+    margin: 20px auto;
+  }
+  .print{
+    border:none !important;
+  }
+}
