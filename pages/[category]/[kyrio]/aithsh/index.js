@@ -1,5 +1,5 @@
 import { useAithsh } from "@/components/AithshState";
-import Barcode from "react-barcode";
+import Barcode from 'react-barcode';
 
 export default function Aithsh(){
 

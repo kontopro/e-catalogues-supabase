@@ -1,10 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-// import { Roboto } from 'next/font/google'
 import styles from '@/styles/Test.module.css'
 import { supabase } from '@/lib/supabaseClient';
 
-// const roboto = Roboto({ subsets: ['latin', 'greek'] })
 
 export default function Test( { menus } ) {
   return (

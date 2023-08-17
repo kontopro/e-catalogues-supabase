@@ -5,6 +5,7 @@
 
   * {
     margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   html, body {
@@ -37,17 +38,24 @@
   }
 /* main structure */
   .site-app {display: flex; flex-direction:column; min-height: 100vh; justify-content: space-between;background-color: whitesmoke; }
-  .container {width:100%;max-width: 1200px; margin: 0 auto; overflow: hidden;border: 1px solid red;}
+  .container {width:100%;max-width: 1200px; margin: 0 auto; overflow: hidden;}
   footer{margin-top:auto;height: 70px;}
   header{color: white; background-color: #171321; width: 100%; height: 140px;}
 
 /* header */
-<<<<<<< HEAD
 header{color: white; background-color: #171321; width: 100%; height: 140px; }
-.top-header{position: relative;height: 100px;}
-=======
-.top-header{position: relative;height: 100px;display: flex;}
->>>>>>> 6309eff11281c15fc3723517ce630bdb147a1b53
+
+/* top-header */
+.top-header{position: relative;height: 100px;display:flex;}
+.top-header>div{flex-basis: 100px;display:flex;justify-content: center;align-items: center;}
+.top-header-left{flex-grow:1;}
+.top-header-left>p{background-color: #dbc00e;padding:8px 16px;color:#171321;font-weight: 500;border-radius: 8%;}
+.top-header-center{flex-grow:3;}
+.top-header-center>p{font-weight: 600; font-size: 40px;letter-spacing: 5px;}
+.top-header-center>p{
+  background-image: linear-gradient(to left, yellow, #dbc00e);  color: transparent;
+  background-clip: text;  -webkit-background-clip: text;}
+.top-header-right{flex-grow:1;}
 header>.top-header::after{bottom: 0;   content: "";   height: 8px;   left: 0;   position: absolute;
   width: 100%;background: linear-gradient(2deg,rgb(230, 102, 102),#ffe742 50%, rgb(46, 175, 218));
 }
@@ -57,7 +65,7 @@ footer{height:150px;background-color:  #171321;}
 
 
 /* cards */
-.cards-wrapper {width:100%;margin:20px 0;display: flex; flex-flow: row wrap; gap:35px; border: 1px solid red;}
+.cards-wrapper {width:100%;margin:20px 0;display: flex; flex-flow: row wrap; gap:35px;}
 .card {display: flex;flex-direction: column; flex: 0 1 35%; box-shadow: 5px 14px 28px rgba(0, 0, 0, .3); border-radius: 4%; cursor: pointer;background-color: white;}
 .card-image {width:100%;flex:0 1 auto; }
 .card-image img{border-top-right-radius: 4%; border-top-left-radius: 4%;}
