@@ -1,20 +1,17 @@
-import React from "react"
-
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
 function Layout( {children} ){
 
-    return (<div className="site-app">
-                <header className="header">
-                    <div className="top-header"></div>
-                    <p>header here</p>
-                </header>
+    return (
+            <div className="site-app">
+                <Header />
                 <div className="container">
                     {children}
                 </div>
-                <footer className="footer">
-                    <p>2023</p>
-                </footer>
-            </div>)
+                <Footer />
+            </div>
+        )
 }
 
 export default Layout

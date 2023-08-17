@@ -42,7 +42,7 @@
   header{height: 70px;}
 
 /* header */
-header{color: white; background-color: #171321; width: 100%; height: 140px;}
+header{color: white; background-color: #171321; width: 100%; height: 140px; }
 .top-header{position: relative;height: 100px;}
 header>.top-header::after{bottom: 0;   content: "";   height: 8px;   left: 0;   position: absolute;
   width: 100%;background: linear-gradient(2deg,rgb(230, 102, 102),#ffe742 50%, rgb(46, 175, 218));
