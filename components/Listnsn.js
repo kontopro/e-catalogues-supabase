@@ -6,7 +6,7 @@ import { useAithsh } from "./AithshState"
 export function Listnsn({antka}){
 
     const {aithsh,handleAithsh}=useAithsh();
-    console.log(aithsh)
+    // console.log(aithsh)
 // Θα φαίνεται η αίτηση στο μενού κύριο, οπότε τραβάω το path μεχρι το κύριο!
     const pathName = usePathname();
     const regKyrio=/^\/(\w|-)+\/(\w|-)+\//;
@@ -19,7 +19,6 @@ export function Listnsn({antka}){
         // const newait = [...oldait,currpart]
         handleAithsh(currpart.id,currpart.ao,currpart.pn,currpart.pos,currpart.per)
     }
-
 
     return (
     <div className="nsn">
