@@ -1,31 +1,31 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '@/styles/Test.module.css'
 import { supabase } from '@/lib/supabaseClient';
 
 
-export default function Test( { menus } ) {
+export default function Home( { menus } ) {
   return (
-    <main className={styles.main}>
+    <main className='main'>
       <div>
         <p>You are in home directory</p>
         <p>hello </p>
+      </div>
          <div className='cards-wrapper'>
          {menus.map(menu => <div key={menu.id} className="card">
                                 <div className='card-image'>
                                   <p><Image src={`/images/category/${menu.slug}.jpg`} width='400' height='200'/></p>
+                                  {/* <p><img src={`/data/images/category/cat-chassis-leo1a5/000.jpg`} width='400' height='200'/></p> */}
                                 </div>
                                 <div className='card-title'>                             
-                                  <p><Link href={`/${menu.slug}`}>Τίτλος: {menu.name}</Link></p>
+                                  <p><Link href={`/${menu.slug}`}>{menu.name}</Link></p>
                                 </div>
                                 <div className='card-desc'>
-                                  <p>description</p>
+                                  <p><Link href={`/${menu.slug}`}><button>Επιλογή</button></Link></p>
                                 </div>
                             </div>
           )
           }
           </div>
-      </div>
     </main>
   )
 }
