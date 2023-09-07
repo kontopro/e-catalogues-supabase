@@ -77,7 +77,7 @@ footer{height:150px;background-color:  #171321;}
 .card-image {width:360px;height: 180px;overflow: hidden;}
 .card-title {padding:20px;height: 70px;border-bottom: 1px dashed gray;}
 .card-title>p>a {font-size: 20px;color: #171321;font-weight: 600;}
-.card-desc {padding:20px;height: 60px;bottom: 0;display: flex;justify-content: end;align-items: center;}
+.card-desc {padding:20px;height: 60px;bottom: 0;display: flex;justify-content: flex-end;align-items: center;}
 .card-desc button {padding:8px 16px;border: none;background-color: #171321;color:whitesmoke;border-radius: 8%;cursor: pointer;}
 .card-image img{width:360px;height: 180px;border-top-right-radius: 4%; border-top-left-radius: 4%;}
 

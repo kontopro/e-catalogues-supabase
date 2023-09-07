@@ -17,7 +17,7 @@ export default function Aithsh(){
           <table className='t1'>
             <tbody>
             <tr><td>ΑΙΤΟΥΣΑ ΜΟΝΑΔΑ</td><td>ΜΟΝΑΔΑ ΜΕΣΩ</td><td>ΔΓΗ ΧΟΡΗΓΗΣΗΣ</td><td>ΔΓΗ ΔΕΣΜΕΥΣΗΣ</td></tr>  
-            <tr><td></td><td>Η'</td><td></td><td></td></tr>  
+            <tr><td></td><td>Η`&apos;`</td><td></td><td></td></tr>  
             <tr><td>ΧΟΡΗΓΟΥΣΑ ΜΟΝΑΔΑ</td><td>ΜΟΝΑΔΑ ΔΙΑ</td><td>ΚΩΔΙΚΑΣ ΔΓΗΣ</td><td>ΚΩΔΙΚΑΣ ΔΓΗΣ</td></tr>  
             <tr><td></td><td></td><td></td><td></td></tr>  
             </tbody>
