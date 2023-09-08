@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Listnsn } from "@/components/Listnsn";
 import { supabase } from "@/lib/supabaseClient"
 import styles from '@/styles/Tree.module.css' 
@@ -19,9 +20,8 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
     return (
       <main className={styles.main}>
         <div>
-          <p>You are in Tree directory</p>
-          <p>hello</p>
-          <p>I now test the tree module</p>
+          {/* <p>You are in Tree directory</p> */}
+          {/* <p>I now test the tree module</p> */}
           <div className='tree-container'>
             <div className="tree">
               {parent_assemblies.map(parent => 
@@ -36,8 +36,9 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
               )}
             </div>
             <div className='imgnsn'>
-              <div className="title"><h3>Εδώ βλέπουμε στοιχεία (εικόνα και ανταλλακτικά) <br/> του Υποσυγκροτήματος: {subassembly}</h3></div>
-              <div className="pic"><p> τράβα την εικόνα `&apos;`{`/data/images/${catalogue[0].slug}/${subassembly}.jpg`}`&apos;`</p></div>
+              <div className="title"><h3>Προβολή εικόνας και ανταλλακτικών<br/> του Υποσυγκροτήματος: {subassembly}</h3></div>
+              {/* <div className="pic"><p> τράβα την εικόνα `&apos;`{`/data/images/${catalogue[0].slug}/${subassembly}.jpg`}`&apos;`</p></div> */}
+              <div className="pic"><p> <Image width={650} height={400} src={`/images/catalogue/${catalogue[0].slug}/${subassembly}.jpg`} /></p></div>
               <Listnsn antka = {myparts} />
             </div>
         </div>

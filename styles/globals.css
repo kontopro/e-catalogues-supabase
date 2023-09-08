@@ -37,7 +37,7 @@
     isolation: isolate;
   }
 /* main structure */
-.site-app {display: flex; flex-direction:column; min-height: 100vh; justify-content: center;background-color: lightgrey; }
+.site-app {display: flex; flex-direction:column; min-height: 100vh; justify-content: center;background-color: whitesmoke; }
 header{color: white; background-color: #171321; width: 100%; height: 140px;}
 .container {width:100%;max-width: 1300px; margin: 0 auto; overflow: hidden;}
 footer{margin-top:auto;height: 70px;}
@@ -67,7 +67,7 @@ header>.top-header::after{bottom: 0;   content: "";   height: 8px;   left: 0;   
 .nav-header>nav>ul>li>a:hover{color:gold}
 
 /* footer */
-footer{height:150px;background-color:  #171321;}
+footer{height:150px;background-color: #171321;}
 
 
 /* cards */
@@ -83,8 +83,10 @@ footer{height:150px;background-color:  #171321;}
 
 /* tree */
 .tree-container {width:100%; margin: 0 auto;display: flex;}
-.tree-container>.tree {flex-basis: 500px;border: 1px solid black;}
-.tree-container>.imgnsn {flex-basis: 800px;border: 1px solid black;}
+.tree-container>.tree {flex-basis: 500px;}
+.tree-container>.imgnsn {flex-basis: 700px;}
+.tree-container>.imgnsn>.pic>p {text-align: center;}
+.tree-container>.imgnsn>.pic>p>img {object-fit: contain;}
 .tree>.parent-container{width: 100%;}
 .tree>.parent-container>h4{cursor:pointer;color:grey}
 .tree>.parent-container>.sub-container{width:100%}
