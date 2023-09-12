@@ -11,10 +11,17 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
 
     function handleClick(e) {
               e.preventDefault();
-              const curr = e.target.getAttribute('assid');
+              const curr = e.target.getAttribute('assid');              
               setSubassembly(curr);
               return curr
             }
+
+    function toggleVisibility(e) {
+      e.preventDefault();
+      const par = e.target.closest("ul.parent-container").classList.toggle("clicked");
+      return par;
+    }
+
     const myparts = parts.filter(x => x.assembly.assid == subassembly)
 
     return (
@@ -25,14 +32,14 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
           <div className='tree-container'>
             <div className="tree">
               {parent_assemblies.map(parent => 
-                <div key={parent.id} className='parent-container'>
-                    <h4>{parent.name}</h4>
+                <ul key={parent.id} id={parent.id} className='parent-container'>
+                    <li onClick={toggleVisibility}>{parent.name}</li>
                       <ul className='sub-container'>
                         {parent.assembly.map(child_assembly => 
                           <li key={child_assembly.id} assid = {child_assembly.assid} onClick={handleClick} className='subassembly'>{child_assembly.name}</li>
                         )}
                       </ul>
-                </div>
+                </ul>
               )}
             </div>
             <div className='imgnsn'>

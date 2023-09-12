@@ -88,8 +88,12 @@ footer{height:150px;background-color: #171321;}
 .tree-container>.imgnsn>.pic>p {text-align: center;}
 .tree-container>.imgnsn>.pic>p>img {object-fit: contain;}
 .tree>.parent-container{width: 100%;}
-.tree>.parent-container>h4{cursor:pointer;color:grey}
+.tree>.parent-container>li{cursor:pointer;color:grey}
 .tree>.parent-container>.sub-container{width:100%}
+
+/* tree dropdown */
+.tree>.parent-container>ul.sub-container {display: none;}
+.tree>.parent-container.clicked>ul.sub-container {display: block;}
 
 /* Listnsn */
 .form-listnsn>table th,td {text-align:center; font-size: small;}
