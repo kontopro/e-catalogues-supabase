@@ -6,13 +6,39 @@ import styles from '@/styles/Category.module.css'
 export default function Category( { category, subcategories, kyria } ) {
     
     return  <main className={styles.main}>
-                <div>You are in category <b>{category.name}!</b></div>
+
+                <div>Υποκατηγορίες στην κατηγορία: <b>{category.name}</b></div>
 
                 {/* Λίστα με τις υποκατηγορίες της κατηγορίας */}
-                <div>{subcategories.map(x => <div key={x.id}><Link href={`/${x.slug}`}>{x.name}</Link></div>)}</div>
+                <div className='cards-wrapper'>{subcategories.map(x => 
+                    <div key={x.id} className="card">
+                        <div className='card-image'>
+                                  <p><Image src={`/images/category/${x.slug}.jpg`} width='400' height='200'/></p>
+                                </div>
+                                <div className='card-title'>                             
+                                  <p><Link href={`/${x.slug}`}>{x.name}</Link></p>
+                                </div> 
+                                <div className='card-desc'>
+                                  <p><Link href={`/${x.slug}`}><button>Επιλογή</button></Link></p>
+                                </div>
+                    </div>)}
+                </div>
 
+                <div>Κύρια Υλικά στην κατηγορία: <b>{category.name}</b></div>
                 {/* Λίστα με τα Κύρια Υλικά της κατηγορίας */}
-                <div>{kyria.map(x => <div key={x.id}><Link href={`/${category.slug}/${x.slug}`}>{x.name}</Link></div>)}</div>
+                <div className='cards-wrapper'>{kyria.map(x => 
+                    <div key={x.id} className="card">
+                        <div className='card-image'>
+                                  <p><Image src={`/images/category/${x.slug}.jpg`} width='400' height='200'/></p>
+                                </div>
+                                <div className='card-title'>                             
+                                  <p><Link href={`/${category.slug}/${x.slug}`}>{x.name}</Link></p>
+                                </div>
+                                <div className='card-desc'>
+                                  <p><Link href={`/${category.slug}/${x.slug}`}><button>Επιλογή</button></Link></p>
+                                </div>
+                    </div>)}
+                </div>
             </main>
 } 
 

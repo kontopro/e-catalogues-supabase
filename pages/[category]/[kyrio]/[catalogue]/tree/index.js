@@ -18,7 +18,12 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
 
     function toggleVisibility(e) {
       e.preventDefault();
-      const par = e.target.closest("ul.parent-container").classList.toggle("clicked");
+      // const par = e.target.closest(".parent-container .sub-container");
+      const par = e.target
+      const par1= par.nextElementSibling.classList.toggle("clicked");
+      
+      console.log(par)
+      console.log(par1)
       return par;
     }
 
@@ -32,14 +37,14 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
           <div className='tree-container'>
             <div className="tree">
               {parent_assemblies.map(parent => 
-                <ul key={parent.id} id={parent.id} className='parent-container'>
-                    <li onClick={toggleVisibility}>{parent.name}</li>
-                      <ul className='sub-container'>
+                <div key={parent.id} id={parent.id} className='parent-container'>
+                    <p onClick={toggleVisibility}>{parent.name}</p>
+                    <ul className='sub-container'>
                         {parent.assembly.map(child_assembly => 
                           <li key={child_assembly.id} assid = {child_assembly.assid} onClick={handleClick} className='subassembly'>{child_assembly.name}</li>
                         )}
-                      </ul>
-                </ul>
+                    </ul>
+                </div>
               )}
             </div>
             <div className='imgnsn'>

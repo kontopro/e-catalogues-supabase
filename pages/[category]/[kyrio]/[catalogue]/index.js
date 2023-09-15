@@ -6,11 +6,20 @@ import styles from '@/styles/Catalogue.module.css'
 export default function Catalogue( { category, kyrio, catalogue, main_assemblies } ) {
     
     return  <main className={styles.main}>
-                <div>You are in catalogue <b>{catalogue.name}!</b></div>
-                <div><Link href={`/${category}/${kyrio}/${catalogue.slug}/tree`}>Δενδρική Μορφή</Link></div>
+                <div>Κύρια Συγκροτήματα Καταλόγου: <b>{catalogue.name}</b></div>
+                {/* <div><Link href={`/${category}/${kyrio}/${catalogue.slug}/tree`}>Δενδρική Μορφή</Link></div> */}
                 
                 {/* Λίστα με κύρια συγκροτήματα και σύνδεσμοι προς αυτά */}
-                <div>{main_assemblies.map(x => <div key={x.id}><Link href={`/${category}/${kyrio}/${catalogue.slug}/${x.assid}`}>{x.name}</Link></div>)}</div>
+                <div className='cards-wrapper'>{main_assemblies.map(x => 
+                    <div key={x.id} className="card">
+                        <div className='card-title'>                             
+                                  <p><Link href={`/${category}/${kyrio}/${catalogue.slug}/${x.assid}`}>{x.name}</Link></p>
+                        </div>
+                        <div className='card-desc'>
+                                  <p><Link href={`/${category}/${kyrio}/${catalogue.slug}/${x.assid}`}><button>Επιλογή</button></Link></p>
+                        </div>
+                                  
+                </div>)}</div>
             </main>
 } 
 

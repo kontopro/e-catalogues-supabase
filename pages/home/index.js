@@ -14,7 +14,7 @@ export default function Home( { menus } ) {
          {menus.map(menu => <div key={menu.id} className="card">
                                 <div className='card-image'>
                                   <p><Image src={`/images/category/${menu.slug}.jpg`} width='400' height='200'/></p>
-                                  {/* <p><img src={`/data/images/category/cat-chassis-leo1a5/000.jpg`} width='400' height='200'/></p> */}
+
                                 </div>
                                 <div className='card-title'>                             
                                   <p><Link href={`/${menu.slug}`}>{menu.name}</Link></p>

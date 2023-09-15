@@ -8,10 +8,22 @@ export default function Kyrio( { category, kyrio, ecats } ) {
     
     
     return  <main className={styles.main}>
-                <div>You are in kyrio <b>{kyrio.name}!</b></div>
+                <div>Διαθέσιμοι Ηλεκτρονικοί Κατάλογοι για το ΚΥ: <b>{kyrio.name}</b></div>
                 
-                {/* <Link href={`/${category}/${kyrio.slug}/aithsh`}>Προβολή Αίτησης</Link> */}
-                <div>{ecats.map(x => <div key={x.id}><Link href={`/${category}/${kyrio.slug}/${x.slug}`}>{x.name}</Link></div>)}</div>
+                <div className='cards-wrapper'>{ecats.map(x => <div key={x.id} className="card">
+                                <div className='card-image'>
+                                  <p><Image src={`/images/category/${kyrio.slug}.jpg`} width='400' height='200'/></p>
+                                </div>
+                                <div className='card-title'>                             
+                                  <p className="no-mobile"><Link href={`/${category}/${kyrio.slug}/${x.slug}/tree`}>{x.name}</Link></p>
+                                  <p className="no-desktop"><Link href={`/${category}/${kyrio.slug}/${x.slug}`}>{x.name}</Link></p>
+                                </div>
+                                <div className='card-desc'>
+                                  <p className="no-mobile"><Link href={`/${category}/${kyrio.slug}/${x.slug}/tree`}><button>Επιλογή</button></Link></p>
+                                  <p className="no-desktop"><Link href={`/${category}/${kyrio.slug}/${x.slug}`}><button>Επιλογή</button></Link></p>
+                                </div>
+                                </div>)}
+                </div>
             </main>
 } 
 
