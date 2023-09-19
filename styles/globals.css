@@ -32,6 +32,8 @@
     text-align: center;
     overflow-wrap: break-word;
   }
+  ul{list-style-type: none;}
+  ul>li>a {text-decoration: none;}
 
   #root, #__next {
     isolation: isolate;
@@ -82,17 +84,26 @@ footer{height:150px;background-color: #171321;}
 .card-image img{width:360px;height: 180px;border-top-right-radius: 4%; border-top-left-radius: 4%;}
 
 /* tree */
-.tree-container {width:100%; margin: 0 auto;display: flex;}
-.tree-container>.tree {flex-basis: 500px;}
+.tree-container {width:100%; margin: 20px auto;display: flex;}
+.tree-container h3{margin: 20px 0;}
+.tree-container>.tree {flex-basis: 500px;padding: 10px;}
 .tree-container>.imgnsn {flex-basis: 700px;}
 .tree-container>.imgnsn>.pic>p {text-align: center;}
 .tree-container>.imgnsn>.pic>p>img {object-fit: contain;}
 .tree>.parent-container{width: 100%;}
-.tree>.parent-container>p{cursor:pointer;color:grey}
+.tree>.parent-container.clicked{color:#171321;}
+.tree>.parent-container>p{cursor:pointer;color:grey;border-bottom: 1px dashed lightgray;text-align: left;}
+.tree>.parent-container.clicked>p{background-color: #171321; color: #ebebec;border:none;}
+.tree>.parent-container>p:hover { background-color: #171321; color: #ebebec;border:none;}
+.tree>.parent-container>p svg{margin:0 10px;display: inline;vertical-align: bottom;}
+.tree>.parent-container>.sub-container{max-height: 0px;overflow: hidden; opacity: 0; transition: all .8s ease-out;}
 
-/* tree dropdown */
-.tree>.parent-container>.sub-container {display: none; opacity: 0; transition: all 2s ease;}
-.tree>.parent-container>.sub-container.clicked {display:block;opacity: 1;}
+/* tree dropdown animation */
+
+.tree>.parent-container>.sub-container.opened {max-height:400px;overflow:auto; opacity: 1;margin-bottom: 20px;}
+.tree>.parent-container>.sub-container.opened li {cursor: pointer; color: gray;padding:5px;}
+.tree>.parent-container>.sub-container.opened li:hover {background-color: #171321; color: #ebebec;}
+.tree>.parent-container>.sub-container.opened li.checked {background-color: #dbc00e;color: #171321;}
 
 /* Listnsn */
 .form-listnsn>table th,td {text-align:center; font-size: small;}

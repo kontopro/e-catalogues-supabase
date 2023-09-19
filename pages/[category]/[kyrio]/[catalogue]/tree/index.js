@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Gear1 from '@/components/gear1.svg'
 import { Listnsn } from "@/components/Listnsn";
 import { supabase } from "@/lib/supabaseClient"
 import styles from '@/styles/Tree.module.css' 
@@ -13,18 +14,24 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
               e.preventDefault();
               const curr = e.target.getAttribute('assid');              
               setSubassembly(curr);
+              const curli = document.querySelectorAll("li");
+              curli.forEach((x) => {
+                x.classList.remove("checked");
+              });
+              e.target.classList.add("checked");
               return curr
             }
 
     function toggleVisibility(e) {
-      e.preventDefault();
-      // const par = e.target.closest(".parent-container .sub-container");
-      const par = e.target
-      const par1= par.nextElementSibling.classList.toggle("clicked");
+      e.preventDefault();   
+      const parClicked= e.target.closest(".parent-container").classList.toggle("clicked");
+      const subOpened= e.target.nextElementSibling.classList.toggle("opened");
       
-      console.log(par)
-      console.log(par1)
-      return par;
+      // console.log(e.target)
+      // console.log('the '+e.target.closest(".parent-container")+' was clicked '+parClicked)
+      // console.log('the '+e.target.nextElementSibling.classList+' was opened '+subOpened)
+
+      return parClicked,subOpened;
     }
 
     const myparts = parts.filter(x => x.assembly.assid == subassembly)
@@ -36,9 +43,11 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
           {/* <p>I now test the tree module</p> */}
           <div className='tree-container'>
             <div className="tree">
+              <h3>Επιλογή Συγκροτήματος</h3>
               {parent_assemblies.map(parent => 
                 <div key={parent.id} id={parent.id} className='parent-container'>
-                    <p onClick={toggleVisibility}>{parent.name}</p>
+                    
+                    <p onClick={toggleVisibility}>&nbsp;&nbsp;&#8680;&nbsp;&nbsp;{parent.name}</p>
                     <ul className='sub-container'>
                         {parent.assembly.map(child_assembly => 
                           <li key={child_assembly.id} assid = {child_assembly.assid} onClick={handleClick} className='subassembly'>{child_assembly.name}</li>
@@ -76,7 +85,7 @@ export async function getStaticProps( { params } )  {
     // Από τον κατάλογο, βρες τα συγκροτήματα με εμφωλευμένα τα υπο-συγκροτήματα, ώστε να έχουν δενδρική μορφή
     const {data: parent_assemblies, error2} = await supabase.from('assembly').select('id,name,caption,assembly (id,assid,name,caption)').eq('catalogue_id',catalogue[0].id).is('parent_id',null)
     
-    // Από τον κατάλογο, βρες μόνο τα υπο-συγκροτήματα για βρούμε τους ΑΟ
+    // Από τον κατάλογο, βρες μόνο τα υπο-συγκροτήματα για να βρούμε τους ΑΟ
     const {data: sub_assemblies, error3} = await supabase.from('assembly').select('id').eq('catalogue_id',catalogue[0].id).gt('parent_id',0)
     
     // Από τα υπο-συγκροτήματα βρες τους ΑΟ
