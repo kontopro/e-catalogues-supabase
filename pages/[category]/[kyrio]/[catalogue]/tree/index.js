@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Gear1 from '@/components/gear1.svg'
 import { Listnsn } from "@/components/Listnsn";
 import { supabase } from "@/lib/supabaseClient"
-import styles from '@/styles/Tree.module.css' 
 import { useState } from 'react';
 
 
@@ -37,13 +36,13 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
     const myparts = parts.filter(x => x.assembly.assid == subassembly)
 
     return (
-      <main className={styles.main}>
+      <main className="main">
         <div>
           {/* <p>You are in Tree directory</p> */}
           {/* <p>I now test the tree module</p> */}
           <div className='tree-container'>
             <div className="tree">
-              <h3>Επιλογή Συγκροτήματος</h3>
+              <h3>Λίστα Συγκροτημάτων</h3>
               {parent_assemblies.map(parent => 
                 <div key={parent.id} id={parent.id} className='parent-container'>
                     
@@ -57,11 +56,16 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
               )}
             </div>
             <div className='imgnsn'>
+              {subassembly=='null'?<>
+              <div className="no-sub"><p>Επιλέξτε Συγκρότημα και Υποσυγκρότημα από τη Λίστα Συγκροτημάτων, για να εμφανιστεί η αντίστοιχη εικόνα</p></div>
+              </>:
+              <>
               <div className="title"><h3>Προβολή εικόνας και ανταλλακτικών<br/> του Υποσυγκροτήματος: {subassembly}</h3></div>
-              {/* <div className="pic"><p> τράβα την εικόνα `&apos;`{`/data/images/${catalogue[0].slug}/${subassembly}.jpg`}`&apos;`</p></div> */}
               <div className="pic"><p> <Image width={650} height={400} src={`/images/catalogue/${catalogue[0].slug}/${subassembly}.jpg`} /></p></div>
               <Listnsn antka = {myparts} />
+              </>}
             </div>
+            
         </div>
         </div>
       </main>

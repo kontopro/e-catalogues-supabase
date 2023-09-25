@@ -22,10 +22,10 @@ export function Listnsn({antka}){
 
     return (
     <div className="nsn">
-        <p>the path is {pathName}</p>
-        <p>the path of aithsh is {kyrioUrl}aithsh</p>
+        {/* <p>the path is {pathName}</p> */}
+        {/* <p>the path of aithsh is {kyrioUrl}aithsh</p> */}
         <Link href={`${kyrioUrl}aithsh`}>AITHSH</Link>
-        <p>τραβα τα ανταλλακτικά:</p>
+        {/* <p>τραβα τα ανταλλακτικά:</p> */}
         <form className="form-listnsn">
             <table>
                 <thead>
@@ -41,11 +41,12 @@ export function Listnsn({antka}){
                 <tbody>
                     {antka.map( part => 
                     <tr key={part.id}>
-                        <td>{part.ref_no}</td>
-                        <td>{part.nsn?part.nsn:'Άνευ Α/Ο'}</td>
-                        <td>{part.pn?part.pn:'-'}</td>
-                        <td>{part.name}</td><td>{part.quantity}</td>
-                        <td><input id={part.id} onChange={handleChange} partname={part.name} partpn={part.pn} partao={part.nsn} type='number' value={`${aithsh.some(x=>x.id==part.id)?aithsh.find(x=>x.id==part.id).pos:0}`} min={0} max={part.quantity}/></td>
+                        <td className="aa">{part.ref_no}</td>
+                        <td className="ao">{part.nsn?part.nsn:'Άνευ Α/Ο'}</td>
+                        <td className="pn">{part.pn?part.pn:'-'}</td>
+                        <td className="peri">{part.name}</td>
+                        <td className="plithos">{part.quantity}</td>
+                        <td className="posot"><input id={part.id} onChange={handleChange} partname={part.name} partpn={part.pn} partao={part.nsn} type='number' value={`${aithsh.some(x=>x.id==part.id)?aithsh.find(x=>x.id==part.id).pos:0}`} min={0} max={part.quantity}/></td>
                     </tr>)}
                 </tbody>
             </table>
