@@ -57,7 +57,7 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
             </div>
             <div className='imgnsn'>
               {subassembly=='null'?<>
-              <div className="no-sub"><p>Επιλέξτε Συγκρότημα και Υποσυγκρότημα από τη Λίστα Συγκροτημάτων, για να εμφανιστεί η αντίστοιχη εικόνα</p></div>
+              <div className="no-sub"><h4>Εμφάνιση Στοιχείων Υποσυγκροτήματος</h4><p>Επιλέξτε Συγκρότημα και Υποσυγκρότημα από τη Λίστα Συγκροτημάτων, για να εμφανιστεί η αντίστοιχη εικόνα</p></div>
               </>:
               <>
               <div className="title"><h3>Προβολή εικόνας και ανταλλακτικών<br/> του Υποσυγκροτήματος: {subassembly}</h3></div>
