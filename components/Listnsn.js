@@ -35,7 +35,7 @@ export function Listnsn({antka}){
                         <th>P/N</th>
                         <th>ΠΕΡΙΓΡΑΦΗ</th>
                         <th>ΠΛΗΘΟΣ</th>
-                        <th>ΑΙΤΟΥΜΕΝΗ ΠΟΣΟΤΗΤΑ</th>
+                        <th className="no-mobile">ΑΙΤΟΥΜΕΝΗ ΠΟΣΟΤΗΤΑ</th>
                     </tr>  
                 </thead>
                 <tbody>
@@ -46,7 +46,7 @@ export function Listnsn({antka}){
                         <td className="pn">{part.pn?part.pn:'-'}</td>
                         <td className="peri">{part.name}</td>
                         <td className="plithos">{part.quantity}</td>
-                        <td className="posot"><input id={part.id} onChange={handleChange} partname={part.name} partpn={part.pn} partao={part.nsn} type='number' value={`${aithsh.some(x=>x.id==part.id)?aithsh.find(x=>x.id==part.id).pos:0}`} min={0} max={part.quantity}/></td>
+                        <td className="posot no-mobile"><input id={part.id} onChange={handleChange} partname={part.name} partpn={part.pn} partao={part.nsn} type='number' value={`${aithsh.some(x=>x.id==part.id)?aithsh.find(x=>x.id==part.id).pos:0}`} min={0} max={part.quantity}/></td>
                     </tr>)}
                 </tbody>
             </table>
