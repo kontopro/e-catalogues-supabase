@@ -61,7 +61,7 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
               </>:
               <>
               <div className="title"><h3>Προβολή εικόνας και ανταλλακτικών<br/> του Υποσυγκροτήματος: {subassembly}</h3></div>
-              <div className="pic"><p> <Image width={650} height={400} src={`/images/catalogue/${catalogue[0].slug}/${subassembly}.jpg`} /></p></div>
+              <div className="pic"><p> <Image width={780} height={500} src={`/images/catalogue/${catalogue[0].slug}/${subassembly}.jpg`} /></p></div>
               <Listnsn antka = {myparts} />
               </>}
             </div>

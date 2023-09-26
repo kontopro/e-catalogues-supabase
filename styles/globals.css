@@ -88,7 +88,7 @@ footer{height:150px;background-color: #171321;}
 .tree-container {width:100%; margin: 20px auto;display: flex;justify-content: space-between;}
 .tree-container h3{text-decoration: underline;padding:30px;margin-bottom: 40px;box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, .1);}
 .tree-container>.tree {flex-basis: 500px;padding: 10px;justify-self: flex-start;}
-.tree-container>.imgnsn {flex-basis: 700px;display: flex;flex-direction: column;align-items: center;}
+.tree-container>.imgnsn {flex-basis: 800px;display: flex;flex-direction: column;align-items: center;}
 .tree-container>.imgnsn>.no-sub {width:500px;padding:50px;margin-top: 80px; background-color:  whitesmoke;box-shadow: 5px 14px 28px rgba(0, 0, 0, .3);}
 .tree-container>.imgnsn>.no-sub h4 {text-decoration: underline;margin: 10px 0;}
 .tree-container>.imgnsn>.pic>p {text-align: center;}
