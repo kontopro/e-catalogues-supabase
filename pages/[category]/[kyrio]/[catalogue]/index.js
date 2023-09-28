@@ -1,11 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
+import Subnav from "@/components/Subnav"
 import { supabase } from "@/lib/supabaseClient"
-import styles from '@/styles/Catalogue.module.css' 
 
 export default function Catalogue( { category, kyrio, catalogue, main_assemblies } ) {
     
-    return  <main className={styles.main}>
+    return  <main className='main'>
+    <Subnav />
                 <div>Κύρια Συγκροτήματα Καταλόγου: <b>{catalogue.name}</b></div>
                 {/* <div><Link href={`/${category}/${kyrio}/${catalogue.slug}/tree`}>Δενδρική Μορφή</Link></div> */}
                 

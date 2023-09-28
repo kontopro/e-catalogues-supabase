@@ -69,6 +69,12 @@ header>.top-header::after{bottom: 0;   content: "";   height: 8px;   left: 0;   
 .nav-header>nav>ul>li>a{text-decoration: none;color:#eee}
 .nav-header>nav>ul>li>a:hover{color:gold}
 
+/* sub-nav  */
+main>.sub-nav{display:flex;align-items:center;height: 50px;color:#171321;border-bottom:1px dashed lightgray;}
+main>.sub-nav>div{flex-basis: 50px;justify-content: center;display:flex;font-size:16px;flex-grow: 1;flex-shrink: 0;}
+main>.sub-nav>div>button{margin: auto;}
+main>.sub-nav>div.center-sub-nav{flex-shrink: 1;}
+
 /* footer */
 footer{height:150px;background-color: #171321;}
 
@@ -120,7 +126,7 @@ footer{height:150px;background-color: #171321;}
 }
 
 /* Aithsh */
-
+main.aithsh{display: flex;flex-direction: column;justify-content: center;}
 main.aithsh>.print{
   width: 900px;
   display: flex;

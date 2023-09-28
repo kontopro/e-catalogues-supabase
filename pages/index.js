@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className='main'>
       <div >
         <p>You are in pages home directory</p>        
       </div>

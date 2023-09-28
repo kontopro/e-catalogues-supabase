@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Gear1 from '@/components/gear1.svg'
+import Subnav from "@/components/Subnav"
 import { Listnsn } from "@/components/Listnsn";
 import { supabase } from "@/lib/supabaseClient"
 import { useState } from 'react';
@@ -25,11 +25,6 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
       e.preventDefault();   
       const parClicked= e.target.closest(".parent-container").classList.toggle("clicked");
       const subOpened= e.target.nextElementSibling.classList.toggle("opened");
-      
-      // console.log(e.target)
-      // console.log('the '+e.target.closest(".parent-container")+' was clicked '+parClicked)
-      // console.log('the '+e.target.nextElementSibling.classList+' was opened '+subOpened)
-
       return parClicked,subOpened;
     }
 
@@ -37,6 +32,7 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
 
     return (
       <main className="main">
+      <Subnav />
         <div>
           {/* <p>You are in Tree directory</p> */}
           {/* <p>I now test the tree module</p> */}

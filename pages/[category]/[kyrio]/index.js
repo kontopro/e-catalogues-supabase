@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient"
-import styles from '@/styles/Kyrio.module.css' 
+import Subnav from "@/components/Subnav"
 
 export default function Kyrio( { category, kyrio, ecats } ) {
 
     
     
-    return  <main className={styles.main}>
+    return  <main className='main'>
+    <Subnav />
                 <div>Διαθέσιμοι Ηλεκτρονικοί Κατάλογοι για το ΚΥ: <b>{kyrio.name}</b></div>
                 
                 <div className='cards-wrapper'>{ecats.map(x => <div key={x.id} className="card">

@@ -1,11 +1,12 @@
 import { supabase } from "@/lib/supabaseClient"
-import styles from '@/styles/Catalogue.module.css'
+import Subnav from "@/components/Subnav"
 import { Listnsn } from "@/components/Listnsn"
 
 export default function Subassembly( { /* category, kyrio,  sub_assemblies, catalogue */  assembly, parts } ) {
     
     const no_parent_assembly = parts.length?1:0
-    return  <main className={styles.main}>
+    return  <main className='main'>
+    <Subnav />
                 <div>You are in assembly <b>{assembly.assid}!</b></div>
                 <div>It is {no_parent_assembly?<b>NOT A</b>:<b>A</b>} <b>parent</b> assembly</div>                
                 {no_parent_assembly?<Listnsn antka={parts} />:''}

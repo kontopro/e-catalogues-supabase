@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
+
+import Subnav from "@/components/Subnav"
 import { supabase } from "@/lib/supabaseClient"
 import styles from '@/styles/Catalogue.module.css' 
 
@@ -7,7 +8,8 @@ export default function Assembly( { category, kyrio, catalogue, assembly, sub_as
     
     const parent_assembly = sub_assemblies.length?1:0
 
-    return  <main className={styles.main}>
+    return  <main className='main'>
+    <Subnav />
                 <div>You are in assembly <b>{assembly.assid}!</b></div>
                 <div>It is {parent_assembly?<b>A</b>:<b>NOT A</b>} <b>parent</b> assembly</div>
                 

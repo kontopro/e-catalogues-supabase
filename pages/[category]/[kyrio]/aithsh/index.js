@@ -1,15 +1,17 @@
 import { useAithsh } from "@/components/AithshState";
+import Subnav from "@/components/Subnav"
 import Barcode from 'react-barcode';
 
 export default function Aithsh(){
 
-    const {aithsh, handleAithsh} = useAithsh();
+    const {aithsh} = useAithsh();
     const check = <>&#x2713;</>
 
     return (
         <>
       
       <main className='aithsh'>
+        <Subnav />
         <div className='print'>
           <div className='print-title'>
             <h1>Αίτηση Μηχανογραφικώς Χορηγουμένων Υλικών</h1>

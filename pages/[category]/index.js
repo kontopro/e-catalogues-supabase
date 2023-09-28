@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient"
-import styles from '@/styles/Category.module.css' 
+import Subnav from "@/components/Subnav"
 
 export default function Category( { category, subcategories, kyria } ) {
     
-    return  <main className={styles.main}>
-
+    return  <main className='main'>
+                
+                <Subnav />
                 <div>Υποκατηγορίες στην κατηγορία: <b>{category.name}</b></div>
 
                 {/* Λίστα με τις υποκατηγορίες της κατηγορίας */}
