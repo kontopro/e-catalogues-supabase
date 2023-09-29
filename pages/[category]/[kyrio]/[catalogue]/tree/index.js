@@ -8,6 +8,7 @@ import { useState } from 'react';
 export default function Tree( { parent_assemblies, catalogue, parts } ) {
 
     const [subassembly, setSubassembly] = useState('null');
+    console.log(catalogue);
 
     function handleClick(e) {
               e.preventDefault();
@@ -32,7 +33,7 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
 
     return (
       <main className="main">
-      <Subnav />
+      <Subnav printbtn={false} aithshbtn={true} txt={`${catalogue[0].name}`} />
         <div>
           {/* <p>You are in Tree directory</p> */}
           {/* <p>I now test the tree module</p> */}

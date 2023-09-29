@@ -15,7 +15,7 @@ export default function Aithshbutton(){
     const todisable= aithsh.length<1;
 
     return(
-        <div className='right-sub-nav'>
+        <div className='right-sub-nav no-mobile'>
             <button disabled={todisable} type="button" onClick={() => router.push(`${kyrioUrl}aithsh`)} >Προβολή Αίτησης</button>
         </div>
     )

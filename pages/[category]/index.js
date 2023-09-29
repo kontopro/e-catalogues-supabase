@@ -7,8 +7,12 @@ export default function Category( { category, subcategories, kyria } ) {
     
     return  <main className='main'>
                 
-                <Subnav />
-                <div>Υποκατηγορίες στην κατηγορία: <b>{category.name}</b></div>
+                <Subnav printbtn={false} aithshbtn={false} txt={`${kyria.length?
+                                                                                `${subcategories.length?`Προβολή Υποκατηγοριών και Κυρίων Υλικών`:`Προβολή Κυρίων Υλικών`}`:
+                                                                                `${subcategories.length?`Προβολή Υποκατηγοριών`:`Δεν έχουν προστεθεί Υποκατηγορίες / Κύρια Υλικά`}` }`
+                                                                                } 
+                                                                                />
+                
 
                 {/* Λίστα με τις υποκατηγορίες της κατηγορίας */}
                 <div className='cards-wrapper'>{subcategories.map(x => 
@@ -24,8 +28,6 @@ export default function Category( { category, subcategories, kyria } ) {
                                 </div>
                     </div>)}
                 </div>
-
-                <div>Κύρια Υλικά στην κατηγορία: <b>{category.name}</b></div>
                 {/* Λίστα με τα Κύρια Υλικά της κατηγορίας */}
                 <div className='cards-wrapper'>{kyria.map(x => 
                     <div key={x.id} className="card">

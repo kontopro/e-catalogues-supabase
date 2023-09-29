@@ -6,10 +6,7 @@ import { supabase } from '@/lib/supabaseClient';
 export default function Home( { menus } ) {
   return (
     <main className='main'>
-      <div>
-        <p>You are in home directory</p>
-        <p>hello </p>
-      </div>
+      
          <div className='cards-wrapper'>
          {menus.map(menu => <div key={menu.id} className="card">
                                 <div className='card-image'>

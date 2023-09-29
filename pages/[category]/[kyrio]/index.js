@@ -8,9 +8,7 @@ export default function Kyrio( { category, kyrio, ecats } ) {
     
     
     return  <main className='main'>
-    <Subnav />
-                <div>Διαθέσιμοι Ηλεκτρονικοί Κατάλογοι για το ΚΥ: <b>{kyrio.name}</b></div>
-                
+                <Subnav printbtn={false} aithshbtn={true} txt={`Διαθέσιμοι Ηλεκτρονικοί Κατάλογοι για το ΚΥ: ${kyrio.name}`} />                
                 <div className='cards-wrapper'>{ecats.map(x => <div key={x.id} className="card">
                                 <div className='card-image'>
                                   <p><Image src={`/images/category/${kyrio.slug}.jpg`} width='400' height='200'/></p>

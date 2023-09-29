@@ -11,7 +11,7 @@ export default function Aithsh(){
         <>
       
       <main className='aithsh'>
-        <Subnav />
+        <Subnav printbtn={true} aithshbtn={false} txt={`Προβολή Αίτησης`} />
         <div className='print'>
           <div className='print-title'>
             <h1>Αίτηση Μηχανογραφικώς Χορηγουμένων Υλικών</h1>
