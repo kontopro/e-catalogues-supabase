@@ -1,14 +1,18 @@
 import { supabase } from "@/lib/supabaseClient"
 import Subnav from "@/components/Subnav"
 import { Listnsn } from "@/components/Listnsn"
+import Image from "next/image"
 
-export default function Subassembly( { /* category, kyrio,  sub_assemblies, catalogue */  assembly, parts } ) {
+export default function Subassembly( {   assembly, parts, catalogue } ) {
     
     const no_parent_assembly = parts.length?1:0
     return  <main className='main'>
     <Subnav />
                 <div>You are in assembly <b>{assembly.assid}!</b></div>
                 <div>It is {no_parent_assembly?<b>NOT A</b>:<b>A</b>} <b>parent</b> assembly</div>                
+                <div className="title"><h3>Προβολή εικόνας και ανταλλακτικών<br/> του Υποσυγκροτήματος: {assembly.assid}</h3></div>
+              <div className="pic"><p> <Image width={780} height={500} src={`/images/catalogue/${catalogue}/${assembly.assid}.jpg`} /></p></div>
+              
                 {no_parent_assembly?<Listnsn antka={parts} />:''}
                
             </main>
@@ -57,6 +61,6 @@ export async function getStaticProps( { params } ){
     const {data: parts, error: err3} = await supabase.from('part').select('id,aid,ref_no,picture_no,name,nsn,pn,assembly (id,assid)').eq('assembly_id',assembly.id)  
     
     return {
-        props: {/* category, kyrio, sub_assemblies, catalogue */ assembly, parts}
+        props: { assembly, parts, catalogue}
     }
 }
