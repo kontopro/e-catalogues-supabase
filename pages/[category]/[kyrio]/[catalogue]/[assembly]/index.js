@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Subnav from "@/components/Subnav"
 import { supabase } from "@/lib/supabaseClient"
-import styles from '@/styles/Catalogue.module.css' 
 
 export default function Assembly( { category, kyrio, catalogue, assembly, sub_assemblies } ) {
     
