@@ -24,7 +24,9 @@ export function Listnsn({antka}){
     <div className="nsn">
         {/* <p>the path is {pathName}</p> */}
         {/* <p>the path of aithsh is {kyrioUrl}aithsh</p> */}
-        <Link href={`${kyrioUrl}aithsh`}>AITHSH</Link>
+        <button className="no-mobile">
+        <Link href={`${kyrioUrl}aithsh`}>Μετάβαση στην Αίτηση</Link>
+        </button>
         {/* <p>τραβα τα ανταλλακτικά:</p> */}
         <form className="form-listnsn">
             <table>
@@ -51,5 +53,9 @@ export function Listnsn({antka}){
                 </tbody>
             </table>
         </form>
+        {antka.length>20?
+        <button className="no-mobile">
+        <Link href={`${kyrioUrl}aithsh`}>Μετάβαση στην Αίτηση</Link>
+        </button>:null}
     </div>)
 }

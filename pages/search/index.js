@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link'
 import { supabase } from '@/lib/supabaseClient';
+import Subnav from '@/components/Subnav';
 
 
 export default function Home( { allParts } ) {
@@ -15,14 +16,17 @@ export default function Home( { allParts } ) {
 
     return (
     <main className='main'>
-      
+          <Subnav printbtn={false} aithshbtn={false} txt={`Αναζήτηση`} /> 
          <div className='search-wrapper'>
-         <form>
-          <input type='text' onChange={handleChange} name='ao'/>
+          <div className='search-title'>
+          <p>Αναζητήστε Αριθμό Ονομαστικού ή Part Number</p>
+          </div>
+         <form className='search-form'>
+          <input type='text' onChange={handleChange} placeholder='Πληκτρολογείστε τουλάχιστον 4 χαρακτήρες' name='ao'/>
         </form>
           </div>
-          <div>
-          {search.length>3?
+          <div className="form-listnsn">
+          {search.length>4?
                 <table>
                 <thead>
                     <tr>

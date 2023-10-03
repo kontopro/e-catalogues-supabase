@@ -12,7 +12,17 @@ export default function Assembly( { category, kyrio, catalogue, assembly, sub_as
                 <div>It is {parent_assembly?<b>A</b>:<b>NOT A</b>} <b>parent</b> assembly</div>
                 
                 {/* Λίστα με υπο συγκροτήματα και σύνδεσμοι προς αυτά */}
-                <div className="cards-wrapper">{sub_assemblies.map(x => <div key={x.id} className="card"><Link href={`/${category}/${kyrio}/${catalogue}/${assembly.assid}/${x.assid}`}>{x.name}</Link></div>)}</div>
+                <div className="cards-wrapper">{sub_assemblies.map(x => 
+                <div key={x.id} className="card">
+                    <div className='card-title'>  
+                    <p><Link href={`/${category}/${kyrio}/${catalogue}/${assembly.assid}/${x.assid}`}>{x.name}</Link></p>
+                    </div>
+                    <div className='card-desc'>
+                                  <p><Link href={`/${category}/${kyrio}/${catalogue}/${assembly.assid}/${x.assid}`}><button>Επιλογή</button></Link></p>
+                    </div>
+                    </div>)}
+                </div>
+                    
             </main>
 } 
 

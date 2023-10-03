@@ -36,6 +36,8 @@
   ul{list-style-type: none;}
   ul>li>a {text-decoration: none;}
 
+  button{cursor: pointer;}
+
   #root, #__next {
     isolation: isolate;
   }
@@ -68,7 +70,6 @@ header>.top-header::after{bottom: 0;   content: "";   height: 8px;   left: 0;   
 .nav-header>nav>ul>li{display: inline;}
 .nav-header>nav>ul>li>a{text-decoration: none;color:#eee}
 .nav-header>nav>ul>li>a:hover{color:gold}
-
 /* sub-nav  */
 main>.sub-nav{display:flex;align-items:center;flex:1 3 1 ;height: 50px;color:#171321;border-bottom:1px dashed lightgray;}
 main>.sub-nav>div{height:100%;display:flex;justify-content: center;align-items: center;font-size:16px;flex-grow: 1;flex-shrink: 0;}
@@ -90,6 +91,17 @@ footer{height:150px;background-color: #171321;}
 .card-desc {padding:20px;height: 60px;bottom: 0;display: flex;justify-content: flex-end;align-items: center;}
 .card-desc button {padding:8px 16px;border: none;background-color: #171321;color:whitesmoke;border-radius: 8%;cursor: pointer;}
 .card-image img{width:360px;height: 180px;border-top-right-radius: 4%; border-top-left-radius: 4%;}
+
+/* main */
+.main{display: flex; flex-direction: column;justify-content: center;}
+.pic>p{display: flex; justify-content: center;}
+
+/* search */
+.search-wrapper{margin:20px auto;display: flex; flex-direction: column;justify-content: center;}
+form.search-form{display: flex; justify-content: center;padding: 8px;}
+form.search-form>input{width: 100%;}
+div.form-listnsn>table{margin: 20px auto;}
+div.form-listnsn>table td{padding: 5px;}
 
 /* tree */
 .tree-container {width:100%; margin: 20px auto;display: flex;justify-content: space-between;}
@@ -116,7 +128,11 @@ footer{height:150px;background-color: #171321;}
 .tree>.parent-container>.sub-container.opened li.checked {background-color: #dbc00e;color: #171321;}
 
 /* Listnsn */
-.form-listnsn>table {background-color: #c0bec7;margin-left:20px;}
+.nsn{display: flex;flex-direction: column; justify-content: center;}
+.nsn>form{display: flex;justify-content: center;margin-bottom: 25px;}
+.nsn>button{margin: 20px auto;}
+.nsn>button>a{text-decoration: none; color:#171321}
+.form-listnsn>table {background-color: #c0bec7;}
 .form-listnsn>table th {border: 1px solid whitesmoke;padding:1px;min-width: 45px;}
 .form-listnsn>table th:nth-child(1) {min-width: 35px;}
 .form-listnsn>table th:nth-child(2) {min-width: 110px;}
