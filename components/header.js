@@ -6,7 +6,7 @@ export default function Header(){
                     <div className="top-header">
                         <div className="top-header-left"><p>ΚΕΥ</p></div>
                         <div className="top-header-center"><p>e-Catalogues</p></div>
-                        <div className="top-header-right" ><p className="no-mobile">2023</p></div>
+                        <div className="top-header-right" ><p className="no-mobile"></p></div>
                     </div>
                     <div className="nav-header">
                         <nav className="main-nav">

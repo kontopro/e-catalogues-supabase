@@ -78,7 +78,12 @@ main>.sub-nav>div.left-sub-nav>button{justify-self: flex-start;cursor: pointer;b
 main>.sub-nav>div.center-sub-nav{flex-shrink: 1;}
 
 /* footer */
-footer{height:150px;background-color: #171321;}
+footer{min-height:150px;padding: 1rem 2rem;background-color: #171321;color: whitesmoke;display: flex;}
+footer>div{display: flex;flex-direction: column;}
+footer>div>p{text-align: left;}
+footer>div.foot-left{flex-grow:2;}
+footer>div.foot-center{flex-grow:1}
+footer>div.foot-right{flex-grow:2;display: flex;flex-direction: column;align-items: center;justify-content: center;color: #dbc00e;font-size: large;}
 
 
 /* cards */
