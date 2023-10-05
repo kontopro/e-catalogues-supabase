@@ -7,7 +7,7 @@ export default function Footer(){
                         <p>Τηλέφωνα Επικοινωνίας: 210-8194752 | 210-8194024</p>
                         <p>(ΕΨΑΔ) 804-4752 | 804-4024</p>
                 </div>
-                <div className="foot-center"></div>
+                <div className="foot-center no-mobile"></div>
                 <div className="foot-right">
                         <p>ΚΕΥ@2023</p>
                 </div>

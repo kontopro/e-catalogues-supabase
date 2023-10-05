@@ -8,8 +8,8 @@ export default function Assembly( { category, kyrio, catalogue, assembly, sub_as
 
     return  <main className='main'>
     <Subnav />
-                <div>You are in assembly <b>{assembly.assid}!</b></div>
-                <div>It is {parent_assembly?<b>A</b>:<b>NOT A</b>} <b>parent</b> assembly</div>
+                {/* <div>You are in assembly <b>{assembly.assid}!</b></div> */}
+                {/* <div>It is {parent_assembly?<b>A</b>:<b>NOT A</b>} <b>parent</b> assembly</div> */}
                 
                 {/* Λίστα με υπο συγκροτήματα και σύνδεσμοι προς αυτά */}
                 <div className="cards-wrapper">{sub_assemblies.map(x => 

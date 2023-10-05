@@ -45,7 +45,7 @@
 .site-app {display: flex; flex-direction:column; min-height: 100vh; justify-content: center;background-color: #ebebec; }
 header{color: white; background-color: #171321; width: 100%; height: 140px;}
 .container {width:100%;max-width: 1300px; margin: 0 auto; overflow: hidden;}
-footer{margin-top:auto;height: 70px;}
+footer{margin-top:auto;}
 
 /* header */
 
@@ -78,7 +78,7 @@ main>.sub-nav>div.left-sub-nav>button{justify-self: flex-start;cursor: pointer;b
 main>.sub-nav>div.center-sub-nav{flex-shrink: 1;}
 
 /* footer */
-footer{min-height:150px;padding: 1rem 2rem;background-color: #171321;color: whitesmoke;display: flex;}
+footer{min-height:150px;padding: 1rem 2rem;background-color: #171321;color: whitesmoke;display: flex;flex-wrap: wrap;}
 footer>div{display: flex;flex-direction: column;}
 footer>div>p{text-align: left;}
 footer>div.foot-left{flex-grow:2;}
@@ -219,6 +219,7 @@ main.aithsh table tr>th{
   .no-mobile {
     display: none;
   }
+  .form-listnsn {overflow-x: auto;}
   .nav-header>nav>ul{justify-content: center;gap:20px;}
 }
 
