@@ -60,7 +60,7 @@ export default function Aithsh(){
               <td> </td>
               <td> </td>
               {/* <td> </td> */}
-              <td><Barcode width={1} height={30} displayValue={false} value={`${x.ao} ${x.pos}`} /> </td>
+              <td><Barcode width={1} height={30} displayValue={false} value={`${x.ao?x.ao:x.pn}&#9;${x.pos}`} /> </td>
             </tr>
           )}
           </tbody>} 
