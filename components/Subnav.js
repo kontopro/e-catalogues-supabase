@@ -1,13 +1,10 @@
 import Backbutton from "@/components/Backbutton";
 import Aithshbutton from "@/components/Aithshbutton";
 import Printbutton from "@/components/Printbutton";
-import { usePathname }  from "next/navigation"
 
 export default function Subnav({txt,aithshbtn,printbtn}){
 
-    const pathName = usePathname();
-    const slashCount = (pathName.match(/\//g) || []).length;
-    console.log(slashCount);
+    
     return(
         <div className="sub-nav no-print" >
                   <Backbutton />

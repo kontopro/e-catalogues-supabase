@@ -1,14 +1,44 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Link from 'next/link'
+import { supabase } from '@/lib/supabaseClient';
 
-const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home( { menus } ) {
   return (
     <main className='main'>
-      <div >
-        <p>You are in pages home directory</p>        
-      </div>
+      
+         <div className='cards-wrapper'>
+         {menus.map(menu => <div key={menu.id} className="card">
+                                <div className='card-image'>
+                                  <p><Image src={`/images/category/${menu.slug}.jpg`} alt={`category-menu-${menu.name}`} width='400' height='200'/></p>
+
+                                </div>
+                                <div className='card-title'>                             
+                                  <p><Link href={`/${menu.slug}`}>{menu.name}</Link></p>
+                                </div>
+                                <div className='card-desc'>
+                                  <p><Link href={`/${menu.slug}`}><button>Επιλογή</button></Link></p>
+                                </div>
+                            </div>
+          )
+          }
+          </div>
     </main>
   )
 }
+
+export async function getStaticProps()  {
+  
+  const { data: menu, error } = await supabase.from('category').select().is('parent_id',null);
+  
+  if (!menu) {
+    return {props: {menus:'not categories'}}
+  }
+  return {
+    props: {
+      menus: menu,
+    }
+  }    
+}
+
+

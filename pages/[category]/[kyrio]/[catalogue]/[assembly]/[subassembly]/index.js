@@ -11,7 +11,7 @@ export default function Subassembly( {   assembly, parts, catalogue } ) {
                 {/* <div>You are in assembly <b>{assembly.assid}!</b></div> */}
                 {/* <div>It is {no_parent_assembly?<b>NOT A</b>:<b>A</b>} <b>parent</b> assembly</div>                 */}
             <div className="title"><h3>Προβολή εικόνας και ανταλλακτικών<br/> του Υποσυγκροτήματος: {assembly.assid}</h3></div>
-            <div className="pic"><p> <Image width={780} height={500} src={`/images/catalogue/${catalogue}/${assembly.assid}.jpg`} /></p></div>
+            <div className="pic"><p> <Image width={780} height={500} alt={`photo-assembly-${assembly.assid}`} src={`/images/catalogue/${catalogue}/${assembly.assid}.jpg`} /></p></div>
               
             {no_parent_assembly?<Listnsn antka={parts} />:''}
                
