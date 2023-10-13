@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { basePath } from '@/next.config';
 import Link from 'next/link'
 import { supabase } from '@/lib/supabaseClient';
 
@@ -10,7 +11,7 @@ export default function Home( { menus } ) {
          <div className='cards-wrapper'>
          {menus.map(menu => <div key={menu.id} className="card">
                                 <div className='card-image'>
-                                  <p><Image src={`/images/category/${menu.slug}.jpg`} alt={`category-menu-${menu.name}`} width='400' height='200'/></p>
+                                  <p><Image src={`${basePath}/images/category/${menu.slug}.jpg`} alt={`category-menu-${menu.name}`} width='400' height='200'/></p>
 
                                 </div>
                                 <div className='card-title'>                             

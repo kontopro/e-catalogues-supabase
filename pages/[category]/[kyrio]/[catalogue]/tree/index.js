@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { basePath } from '@/next.config';
 import Subnav from "@/components/Subnav"
 import { Listnsn } from "@/components/Listnsn";
 import { supabase } from "@/lib/supabaseClient"
@@ -57,7 +58,7 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
               </>:
               <>
               <div className="title"><h3>Προβολή εικόνας και ανταλλακτικών<br/> του Υποσυγκροτήματος: {subassembly}</h3></div>
-              <div className="pic"><p> <Image width={780} height={500} alt={`photo-subassembly-${subassembly}`} src={`/images/catalogue/${catalogue[0].slug}/${subassembly}.jpg`} /></p></div>
+              <div className="pic"><p> <Image width={780} height={500} alt={`photo-subassembly-${subassembly}`} src={`${basePath}/images/catalogue/${catalogue[0].slug}/${subassembly}.jpg`} /></p></div>
               <Listnsn antka = {myparts} />
               </>}
             </div>

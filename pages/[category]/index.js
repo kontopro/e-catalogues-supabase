@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { basePath } from '@/next.config';
 import { supabase } from "@/lib/supabaseClient"
 import Subnav from "@/components/Subnav"
 
@@ -16,7 +17,7 @@ export default function Category( { category, subcategories, kyria } ) {
                 <div className='cards-wrapper'>{kyria.map(x => 
                   <div key={x.id} className="card">
                       <div className='card-image'>
-                                <p><Image src={`/images/category/${x.slug}.jpg`} alt={`kyrio-yliko-${x.slug}`} width='400' height='200'/></p>
+                                <p><Image src={`${basePath}/images/category/${x.slug}.jpg`} alt={`kyrio-yliko-${x.slug}`} width='400' height='200'/></p>
                               </div>
                               <div className='card-title'>                             
                                 <p><Link href={`/${category.slug}/${x.slug}`}>{x.name}</Link></p>
@@ -29,7 +30,7 @@ export default function Category( { category, subcategories, kyria } ) {
                 :<div className='cards-wrapper'>{subcategories.map(x => 
                     <div key={x.id} className="card">
                         <div className='card-image'>
-                                  <p><Image src={`/images/category/${x.slug}.jpg`} alt={`subcategory-${x.slug}`} width='400' height='200'/></p>
+                                  <p><Image src={`${basePath}/images/category/${x.slug}.jpg`} alt={`subcategory-${x.slug}`} width='400' height='200'/></p>
                                 </div>
                                 <div className='card-title'>                             
                                   <p><Link href={`/${x.slug}`}>{x.name}</Link></p>

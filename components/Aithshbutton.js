@@ -10,7 +10,6 @@ export default function Aithshbutton(){
     const slashCount = (pathName.match(/\//g) || []).length;
     const regKyrio=/^\/(\w|-)+\/(\w|-)+\//;
     const kyrioUrl = slashCount===2?pathName:regKyrio.exec(pathName)[0];
-    console.log(kyrioUrl)
     const {aithsh}=useAithsh();
     const todisable= aithsh.length<1;
 

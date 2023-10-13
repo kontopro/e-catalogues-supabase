@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { basePath } from '@/next.config';
 import { supabase } from "@/lib/supabaseClient"
 import Subnav from "@/components/Subnav"
 
@@ -11,7 +12,7 @@ export default function Kyrio( { category, kyrio, ecats } ) {
                 <Subnav printbtn={false} aithshbtn={true} txt={`Διαθέσιμοι Ηλεκτρονικοί Κατάλογοι για το ΚΥ: ${kyrio.name}`} />                
                 <div className='cards-wrapper'>{ecats.map(x => <div key={x.id} className="card">
                                 <div className='card-image'>
-                                  <p><Image src={`/images/category/${kyrio.slug}.jpg`} alt={`catalogue-${x.slug}`} width='400' height='200'/></p>
+                                  <p><Image src={`${basePath}/images/category/${kyrio.slug}.jpg`} alt={`catalogue-${x.slug}`} width='400' height='200'/></p>
                                 </div>
                                 <div className='card-title'>                             
                                   <p className="no-mobile"><Link href={`/${category}/${kyrio.slug}/${x.slug}/tree`}>{x.name}</Link></p>

@@ -2,6 +2,7 @@ import { supabase } from "@/lib/supabaseClient"
 import Subnav from "@/components/Subnav"
 import { Listnsn } from "@/components/Listnsn"
 import Image from "next/image"
+import { basePath } from '@/next.config';
 
 export default function Subassembly( {   assembly, parts, catalogue } ) {
     
@@ -11,7 +12,7 @@ export default function Subassembly( {   assembly, parts, catalogue } ) {
                 {/* <div>You are in assembly <b>{assembly.assid}!</b></div> */}
                 {/* <div>It is {no_parent_assembly?<b>NOT A</b>:<b>A</b>} <b>parent</b> assembly</div>                 */}
             <div className="title"><h3>Προβολή εικόνας και ανταλλακτικών<br/> του Υποσυγκροτήματος: {assembly.assid}</h3></div>
-            <div className="pic"><p> <Image width={780} height={500} alt={`photo-assembly-${assembly.assid}`} src={`/images/catalogue/${catalogue}/${assembly.assid}.jpg`} /></p></div>
+            <div className="pic"><p> <Image width={780} height={500} alt={`photo-assembly-${assembly.assid}`} src={`${basePath}/images/catalogue/${catalogue}/${assembly.assid}.jpg`} /></p></div>
               
             {no_parent_assembly?<Listnsn antka={parts} />:''}
                
