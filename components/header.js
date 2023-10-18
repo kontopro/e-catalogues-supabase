@@ -16,8 +16,7 @@ export default function Header(){
                                 <li className="no-mobile"><Link className="no-mobile" href="/armata">Άρματα</Link></li>
                                 <li className="no-mobile"><Link className="no-mobile" href="/oplismos">Οπλισμός</Link></li>
                                 <li className="no-mobile"><Link className="no-mobile" href="/pirovola">Πυροβόλα</Link></li>
-                                <li className="no-mobile"><Link className="no-mobile" href="/sa">Σ/Α</Link></li>
-                                <li className="no-mobile"><Link className="no-mobile" href="/dioptres">Διόπτρες</Link></li>
+                                <li className="no-mobile"><Link className="no-mobile" href="/sa-dioptres">Σ/Α - Διόπτρες</Link></li>
                                 <li className="no-mobile"><Link className="no-mobile" href="/genika">Γενικά Υλικά</Link></li>
                                 <li ><Link href="/search">Αναζήτηση</Link></li>
                             </ul>
