@@ -12,6 +12,7 @@ export default function Home( { allParts } ) {
     event.preventDefault();
     const curr = event.target.value;
     setSearch(curr);
+    // console.log(allParts);
   }
 
     return (
@@ -22,7 +23,7 @@ export default function Home( { allParts } ) {
           <p>Αναζητήστε Αριθμό Ονομαστικού ή Part Number</p>
           </div>
          <form className='search-form'>
-          <input type='text' onChange={handleChange} placeholder='Πληκτρολογείστε τουλάχιστον 4 χαρακτήρες' name='ao'/>
+          <input type='text' onChange={handleChange} placeholder='Πληκτρολογείστε τουλάχιστον 5 χαρακτήρες' name='ao'/>
         </form>
           </div>
           <div className="form-listnsn">
@@ -45,7 +46,7 @@ export default function Home( { allParts } ) {
                   <td>{x.name}</td>
                   <td>{x.assembly.catalogue.kyrio.name}</td>
                   <td>{x.assembly.catalogue.name}</td>
-                  <td><Link href={`${x.assembly.catalogue.kyrio.category.slug}/${x.assembly.catalogue.kyrio.slug}/${x.assembly.catalogue.slug}//${x.assembly.parent_assid}//${x.assembly.assid}`}>{x.picture_no} &#8618;</Link></td>
+                  <td><Link href={`${x.assembly.catalogue.kyrio.category.slug}/${x.assembly.catalogue.kyrio.slug}/${x.assembly.catalogue.slug}/${x.assembly.parent_assid}/${x.assembly.assid}`}>{x.picture_no} &#8618;</Link></td>
                   </tr>)}
                 </tbody>
                 </table>
@@ -57,7 +58,8 @@ export default function Home( { allParts } ) {
 
 export async function getStaticProps()  {
   
-  const { data: allParts, error } = await supabase.from('part').select('id,ref_no,picture_no,name,nsn,pn,assembly (id,assid,parent_assid, catalogue(id,name,slug, kyrio(id,name,slug,category(id,slug))))');
+  const { data: allParts, error } = await supabase.from('part').select('id,ref_no,picture_no,name,nsn,pn,assembly(id,assid,parent_assid, catalogue(id,name,slug, kyrio(id,name,slug,category(id,slug))))');
+  // 
   
   return {
     props: {
