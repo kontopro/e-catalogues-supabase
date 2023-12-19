@@ -88,7 +88,7 @@ export async function getStaticProps( { params } )  {
     
     // Από τον κατάλογο, βρες μόνο τα υπο-συγκροτήματα για να βρούμε τους ΑΟ
     const {data: sub_assemblies, error3} = await supabase.from('assembly').select('id').eq('catalogue_id',catalogue[0].id).gt('parent_id',0)
-    
+    console.log(sub_assemblies)
     // Από τα υπο-συγκροτήματα βρες τους ΑΟ
     const {data: parts, error4} = await supabase.from('part').select('id,name,nsn,pn,quantity,aid,ref_no,picture_no,assembly (id,assid)').in('assembly_id',sub_assemblies.map(x => x.id)).order('aid')
     
