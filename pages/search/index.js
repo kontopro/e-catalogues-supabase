@@ -44,8 +44,8 @@ export default function Home( { allParts } ) {
                   <td>{x.nsn}</td>
                   <td>{x.pn}</td>                
                   <td>{x.name}</td>
-                  <td>{x.assembly.catalogue.kyrio.name}</td>
-                  <td>{x.assembly.catalogue.name}</td>
+                  <td>{x.assembly?x.assembly.catalogue.kyrio.name:''}</td>
+                  <td>{x.assembly?x.assembly.catalogue.name:''}</td>
                   <td><Link href={`${x.assembly.catalogue.kyrio.category.slug}/${x.assembly.catalogue.kyrio.slug}/${x.assembly.catalogue.slug}/${x.assembly.parent_assid}/${x.assembly.assid}`}>{x.picture_no} &#8618;</Link></td>
                   </tr>)}
                 </tbody>
