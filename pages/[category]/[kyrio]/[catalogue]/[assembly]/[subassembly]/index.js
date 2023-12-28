@@ -59,7 +59,7 @@ export async function getStaticProps( { params } ){
     // const {data: sub_assemblies, error: err2} = await supabase.from('assembly').select().eq('parent_id',assembly.id)  
     
     // Τσίμπα τα ανταλλακτικά
-    const {data: parts, error: err3} = await supabase.from('part').select('id,aid,ref_no,picture_no,name,nsn,pn,assembly (id,assid)').eq('assembly_id',assembly.id)  
+    const {data: parts, error: err3} = await supabase.rpc('get_parts_from_assembly',{ass_id: assembly.id}) 
     
     return {
         props: { assembly, parts, catalogue}
