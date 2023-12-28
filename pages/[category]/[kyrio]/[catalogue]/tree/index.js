@@ -38,7 +38,7 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
           {/* <p>You are in Tree directory</p> */}
           {/* <p>I now test the tree module</p> */}
           <div className='tree-container'>
-            <div className="tree">
+            <div className="tree no-mobile">
               <h3>Λίστα Συγκροτημάτων</h3>
               {parent_assemblies.map(parent => 
                 <div key={parent.id} id={parent.id} className='parent-container'>
@@ -54,7 +54,7 @@ export default function Tree( { parent_assemblies, catalogue, parts } ) {
             </div>
             <div className='imgnsn'>
               {subassembly==''?<>
-              <div className="no-sub"><h4>Εμφάνιση Στοιχείων Υποσυγκροτήματος</h4><p>Επιλέξτε Συγκρότημα και Υποσυγκρότημα από τη Λίστα Συγκροτημάτων, για να εμφανιστεί η αντίστοιχη εικόνα</p></div>
+              <div className="no-sub no-mobile"><h4>Εμφάνιση Στοιχείων Υποσυγκροτήματος</h4><p>Επιλέξτε Συγκρότημα και Υποσυγκρότημα από τη Λίστα Συγκροτημάτων, για να εμφανιστεί η αντίστοιχη εικόνα</p></div>
               </>:
               <>
               <div className="title"><h3>Προβολή εικόνας και ανταλλακτικών<br/> του Υποσυγκροτήματος: {subassembly}</h3></div>
